@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, JSX } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
@@ -11,14 +11,12 @@ export default function Navbar(): JSX.Element {
     <nav className="autour-one-regular">
       <div>
         <div className="flex justify-center items-center h-16">
-          {/* Desktop Nav */}
           <div className="hidden md:flex space-x-6">
             <NavLink href="/">Art</NavLink>
             <NavLink href="/about">About</NavLink>
             <NavLink href="/contact">Contact</NavLink>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
@@ -31,7 +29,6 @@ export default function Navbar(): JSX.Element {
         </div>
       </div>
 
-      {/* Mobile Nav */}
       {menuOpen && (
         <div className="md:hidden p-4">
           <NavLink href="/" onClick={() => setMenuOpen(false)}>
@@ -49,7 +46,6 @@ export default function Navbar(): JSX.Element {
   );
 }
 
-// Reusable NavLink component with type safety
 interface NavLinkProps {
   href: string;
   children: React.ReactNode;

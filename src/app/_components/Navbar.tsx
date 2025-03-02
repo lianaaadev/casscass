@@ -1,5 +1,6 @@
 import { JSX } from "react";
 import Link from "next/link";
+import { FaInstagram } from "react-icons/fa";
 
 export default function Navbar(): JSX.Element {
   return (
@@ -9,7 +10,14 @@ export default function Navbar(): JSX.Element {
           <div className="flex space-x-6">
             <NavLink href="/">Art</NavLink>
             <NavLink href="/about">About</NavLink>
-            <NavLink href="/contact">Contact</NavLink>
+            <a
+              href="https://www.instagram.com/silverone1019" // Replace with your Instagram URL
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-orange-700 hover:text-orange-500 transition duration-300"
+            >
+              <FaInstagram size={32} />
+            </a>
           </div>
         </div>
       </div>
@@ -27,7 +35,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, onClick }) => (
   <Link
     href={href}
     onClick={onClick}
-    className="block py-2 text-orange-700 hover:font-bold hover:underline"
+    className="block py-2 text-orange-700 hover:font-bold hover:text-orange-500 hover:underline"
   >
     {children}
   </Link>

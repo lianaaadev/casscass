@@ -1,0 +1,30 @@
+.portfolio-grid {
+  column-count: 4;
+  column-gap: 30px;
+}
+
+@media (max-width: 1024px) {
+  .portfolio-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-grid {
+    column-count: 1;
+  }
+}
+
+.image-wrapper {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}

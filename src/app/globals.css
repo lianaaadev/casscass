@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-color: #FFDFEF;
+}
+
+.emilys-candy-regular {
+  font-family: "Emilys Candy", serif;
+  font-weight: 500;
+  font-style: normal;
+ 
+}
+
+.autour-one-regular {
+  font-family: "Autour One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}

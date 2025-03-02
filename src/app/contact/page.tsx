@@ -1,7 +1,35 @@
+"use client";
 import Navbar from "@components/Navbar";
 import ClickableLogo from "@components/ClickableLogo";
 
-export default function About() {
+export default function Contact() {
+  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  
+    const formData = new FormData(event.currentTarget);
+    const formParams = new URLSearchParams();
+  
+    formData.forEach((value, key) => {
+      formParams.append(key, value as string);
+    });
+  
+    try {
+      const response = await fetch("/__forms.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formParams.toString(),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      alert("Form submitted successfully!");
+    } catch (error) {
+      alert("Failed to submit form. Please try again.");
+    }
+  };
+  
   return (
     <div className="max-w-7xl mx-auto p-5">
       <div className="mt-9 flex justify-center">
@@ -11,21 +39,12 @@ export default function About() {
         <Navbar />
       </div>
 
-      <form name="contact" data-netlify="true">
-        <p>
-          <label>
-            Name <input type="text" name="name" />
-          </label>
-        </p>
-        <p>
-          <label>
-            Email <input type="email" name="email" />
-          </label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
-      </form>
+      <form name="feedback" onSubmit={handleFormSubmit}>
+      <input type="hidden" name="form-name" value="feedback" />
+      <input name="name" type="text" placeholder="Name" required />
+      <input name="email" type="text" placeholder="Email (optional)" />
+      <button type="submit">Submit</button>
+    </form>
     </div>
   );
 }

@@ -5,6 +5,11 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 export const metadata: Metadata = {
   title: "Cassie Mifflin",
   description: "Cassie Mifflin's Art",
+  icons: {
+    icon: "/favicon.png", 
+    shortcut: "/favicon.png", 
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

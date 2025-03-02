@@ -1,101 +1,45 @@
 import Image from "next/image";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const IMAGES = [
+    { src: "/art/self-portrait-1.jpg", alt: "Self Portrait 1" },
+    { src: "/art/self-portrait-2.jpg", alt: "Self Portrait 2" },
+    { src: "/art/man-with-slit-throat.jpg", alt: "Man With Slit Throat" },
+    { src: "/art/self-portrait-3.jpg", alt: "Self Portrait 3" },
+    { src: "/art/collage-people-flowers.jpg", alt: "Collage 1" },
+    { src: "/art/collage-orange.jpg", alt: "Collage 2" },
+    { src: "/art/collage-girl.jpg", alt: "Collage 3" },
+    { src: "/art/collage-person.jpg", alt: "Collage 4" },
+    { src: "/art/collage-flower.jpg", alt: "Collage 5" },
+    { src: "/art/girl-covering-her-face.jpg", alt: "Collage 6" },
+    { src: "/art/hands-1.jpg", alt: "Hands 1" },
+    { src: "/art/Hands-2.jpg", alt: "Hands 2" },
+    { src: "/art/Hands-3.jpg", alt: "Hands 3" },
+    { src: "/art/Hands-4.jpg", alt: "Hands 4" },
+    { src: "/art/house-1.jpg", alt: "House 1" },
+    { src: "/art/house-2.jpg", alt: "House 2" },
+    { src: "/art/tree.jpg", alt: "Tree" },
+    { src: "/art/collage-cinema.jpg", alt: "Collage 7" },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+  return (
+    <div className="max-w-7xl mx-auto p-5">
+      <h1 className="text-center text-3xl mb-5 font-semibold">
+        Cassie Mifflin
+      </h1>
+      <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        {IMAGES.map((img, index) => (
+          <div key={index} className="rounded-lg overflow-hidden">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src={img.src}
+              alt={img.alt}
+              width={500}
+              height={750}
+              layout="intrinsic"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

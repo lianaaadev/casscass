@@ -11,7 +11,7 @@ export default function Navbar(): JSX.Element {
             <NavLink href="/">Art</NavLink>
             <NavLink href="/about">About</NavLink>
             <a
-              href="https://www.instagram.com/silverone1019" // Replace with your Instagram URL
+              href="https://www.instagram.com/silverone1019"
               target="_blank"
               rel="noopener noreferrer"
               className="text-orange-700 hover:text-orange-500 transition duration-300"
